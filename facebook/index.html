@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="1138.51">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Courier; color: #222222; background-color: #eeeeee}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Courier; color: #222222; background-color: #eeeeee; min-height: 14.0px}
+    span.s1 {font: 11.0px 'Lucida Grande'; color: #333333; background-color: #ffffff}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html&gt;</p>
+<p class="p1"><span class="Apple-tab-span">	</span>&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/head&gt;</p>
+<p class="p1"><span class="Apple-tab-span">	</span>&lt;body&gt;</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;button onclick="login()"&gt;Login&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;button onclick="me()"&gt;Me&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;!--&lt;button onclick="getSession()"&gt;Get session&lt;/button&gt;--&gt;</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;button onclick="getLoginStatus()"&gt;Get login&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;button onclick="logout()"&gt;Logout&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;button onclick="facebookWallPost()"&gt;facebookWallPost&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;button onclick="publishStoryFriend()"&gt;friendstory&lt;/button&gt;</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="data"&gt;loading ...&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!--&lt;script src="http://localhost:8080/target/target-script-min.js#anonymous"&gt;&lt;/script&gt;--&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="fb-root"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- cordova --&gt;</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;script src="phonegap.js"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-converted-space">    </span>&lt;!-- cordova facebook plugin --&gt;</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;script src="cdv-plugin-fb-connect.js"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-converted-space">    </span>&lt;!-- facebook js sdk --&gt;</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;script src="facebook-js-sdk.js"&gt;&lt;/script&gt;</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;script&gt;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>if ((typeof cordova == 'undefined') &amp;&amp; (typeof Cordova == 'undefined')) alert('Cordova variable does not exist. Check that you have included cordova.js correctly');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (typeof CDV == 'undefined') alert('CDV variable does not exist. Check that you have included cdv-plugin-fb-connect.js correctly');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (typeof FB == 'undefined') alert('FB variable does not exist. Check that you have included the Facebook JS SDK file.');</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>FB.Event.subscribe('auth.login', function(response) {</p>
+<p class="p1"><span class="Apple-converted-space">                               </span>alert('auth.login event');</p>
+<p class="p1"><span class="Apple-converted-space">                               </span>});</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>FB.Event.subscribe('auth.logout', function(response) {</p>
+<p class="p1"><span class="Apple-converted-space">                               </span>alert('auth.logout event');</p>
+<p class="p1"><span class="Apple-converted-space">                               </span>});</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>FB.Event.subscribe('auth.sessionChange', function(response) {</p>
+<p class="p1"><span class="Apple-converted-space">                               </span>alert('auth.sessionChange event');</p>
+<p class="p1"><span class="Apple-converted-space">                               </span>});</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>FB.Event.subscribe('auth.statusChange', function(response) {</p>
+<p class="p1"><span class="Apple-converted-space">                               </span>alert('auth.statusChange event');</p>
+<p class="p1"><span class="Apple-converted-space">                               </span>});</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>/*function getSession() {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>alert("session: " + JSON.stringify(FB.getSession()));</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>*/</p>
+<p class="p1"><span class="Apple-converted-space">            </span>function getLoginStatus() {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>FB.getLoginStatus(function(response) {</p>
+<p class="p1"><span class="Apple-converted-space">                                  </span>if (response.status == 'connected') {</p>
+<p class="p1"><span class="Apple-converted-space">                                  </span>alert('logged in');</p>
+<p class="p1"><span class="Apple-converted-space">                                  </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                                  </span>alert('not logged in');</p>
+<p class="p1"><span class="Apple-converted-space">                                  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                                  </span>});</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>var friendIDs = [];</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>var fdata;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>function me() {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>FB.api('/me/friends', { fields: 'id, name, picture' },<span class="Apple-converted-space">  </span>function(response) {</p>
+<p class="p1"><span class="Apple-converted-space">                       </span>if (response.error) {</p>
+<p class="p1"><span class="Apple-converted-space">                       </span>alert(JSON.stringify(response.error));</p>
+<p class="p1"><span class="Apple-converted-space">                       </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                       </span>var data = document.getElementById('data');</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span> <span class="Apple-converted-space">  </span>fdata=response.data;</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span> <span class="Apple-converted-space">  </span>console.log("fdata: "+fdata);</p>
+<p class="p1"><span class="Apple-converted-space">                       </span>response.data.forEach(function(item) {</p>
+<p class="p1"><span class="Apple-converted-space">                                             </span>var d = document.createElement('div');</p>
+<p class="p1"><span class="Apple-converted-space">                                             </span>d.innerHTML = "&lt;img src="+item.picture+"/&gt;"+item.name;</p>
+<p class="p1"><span class="Apple-converted-space">                                             </span>data.appendChild(d);</p>
+<p class="p1"><span class="Apple-converted-space">                                             </span>});</p>
+<p class="p1"><span class="Apple-converted-space">                       </span>}</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>var friends = response.data;</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>console.log(friends.length);<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>for (var k = 0; k &lt; friends.length &amp;&amp; k &lt; 200; k++) {</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-converted-space">        </span>var friend = friends[k];</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-converted-space">        </span>var index = 1;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-converted-space">        </span>friendIDs[k] = friend.id;</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-converted-space">        </span>//friendsInfo[k] = friend;</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>}</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>console.log("friendId's: "+friendIDs);</p>
+<p class="p1"><span class="Apple-converted-space">                       </span>});</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>function logout() {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>FB.logout(function(response) {</p>
+<p class="p1"><span class="Apple-converted-space">                          </span>alert('logged out');</p>
+<p class="p1"><span class="Apple-converted-space">                          </span>});</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>function login() {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>FB.login(</p>
+<p class="p1"><span class="Apple-converted-space">                         </span>function(response) {</p>
+<p class="p1"><span class="Apple-converted-space">                         </span>if (response.session) {</p>
+<p class="p1"><span class="Apple-converted-space">                         </span>alert('logged in');</p>
+<p class="p1"><span class="Apple-converted-space">                         </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                         </span>alert('not logged in');</p>
+<p class="p1"><span class="Apple-converted-space">                         </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                         </span>},</p>
+<p class="p1"><span class="Apple-converted-space">                         </span>{ scope: "email" }</p>
+<p class="p1"><span class="Apple-converted-space">                         </span>);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></p>
+<p class="p2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>function facebookWallPost() {</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-converted-space">    </span>console.log('Debug 1');</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>var params = {</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-converted-space">    </span>method: 'feed',</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-converted-space">    </span>name: 'Facebook Dialogs',</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-converted-space">    </span>link: 'https://developers.facebook.com/docs/reference/dialogs/',</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-converted-space">    </span>picture: 'http://fbrell.com/f8.jpg',</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-converted-space">    </span>caption: 'Reference Documentation',</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-converted-space">    </span>description: 'Dialogs provide a simple, consistent interface for applications to interface with users.'</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-converted-space">  </span>};</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>console.log(params);</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-converted-space">    </span>FB.ui(params, function(obj) { console.log(obj);});</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>}</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>function publishStoryFriend() {</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>randNum = Math.floor ( Math.random() * friendIDs.length );<span class="Apple-converted-space"> </span></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>var friendID = friendIDs[randNum];</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>if (friendID == undefined){</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>alert('please click the me button to get a list of friends first');</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>}else{</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-converted-space">    <span class="Apple-tab-span">	</span></span>console.log("friend id: " + friendID );</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-converted-space">        </span>console.log('Opening a dialog for friendID: ', friendID);</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-converted-space">        </span>var params = {</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-converted-space">        <span class="Apple-tab-span">	</span></span>method: 'feed',</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-converted-space">            </span>to: friendID.toString(),</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-converted-space">            </span>name: 'Facebook Dialogs',</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-converted-space">            </span>link: 'https://developers.facebook.com/docs/reference/dialogs/',</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-converted-space">            </span>picture: 'http://fbrell.com/f8.jpg',</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-converted-space">            </span>caption: 'Reference Documentation',</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-converted-space">            </span>description: 'Dialogs provide a simple, consistent interface for applications to interface with users.'</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span> <span class="Apple-converted-space">    <span class="Apple-tab-span">	</span></span>};</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>FB.ui(params, function(obj) { console.log(obj);});</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>}</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.addEventListener('deviceready', function() {</p>
+<p class="p1"><span class="Apple-converted-space">                                      </span>try {</p>
+<p class="p1"><span class="Apple-converted-space">                                      </span>alert('Device is ready! Make sure you set your app_id below this alert.');</p>
+<p class="p1"><span class="Apple-converted-space">                                      </span>FB.init({ appId: "<span class="s1">195593843897695</span>", nativeInterface: CDV.FB, useCachedDialogs: false });</p>
+<p class="p1"><span class="Apple-converted-space">                                      </span>document.getElementById('data').innerHTML = "";</p>
+<p class="p1"><span class="Apple-converted-space">                                      </span>} catch (e) {</p>
+<p class="p1"><span class="Apple-converted-space">                                      </span>alert(e);</p>
+<p class="p1"><span class="Apple-converted-space">                                      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                                      </span>}, false);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="log"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-tab-span">	</span>&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>

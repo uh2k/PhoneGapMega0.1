@@ -5,7 +5,7 @@
     versioncode = "1"
     version     = "1.0.0">
     
-    <name>TEST - All PhoneGap Demo</name>
+    <name>TEST2 - All PhoneGap Demo</name>
     
     <content src="index.html"/>
     <icon src="icon.png" width="256" height="256" />
@@ -28,7 +28,9 @@
 	<feature name="http://api.phonegap.com/1.0/network" />
 	<feature name="http://api.phonegap.com/1.0/notification" />
 	<feature name="http://api.phonegap.com/1.0/device" />
-    
+     <gap:plugin name="FacebookConnect">
+   <param name="APP_ID" value="195593843897695" />
+ </gap:plugin>
     <!-- for Android -->
     <preference name="orientation" value="portrait" />
     <preference name="android-minSdkVersion" value="9" />
