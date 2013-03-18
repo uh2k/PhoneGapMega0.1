@@ -5,7 +5,7 @@
     versioncode = "1"
     version     = "1.0.0">
     
-    <name>All PhoneGap Demo</name>
+    <name>TEST - All PhoneGap Demo</name>
     
     <content src="index.html"/>
     <icon src="icon.png" width="256" height="256" />
