@@ -31,8 +31,9 @@
      <!-- for Android -->
     <preference name="orientation" value="portrait" />
     <preference name="android-minSdkVersion" value="9" />
-</widget>
-
-    <gap:plugin name="FacebookConnect">
+	    <gap:plugin name="FacebookConnect">
    <param name="APP_ID" value="195593843897695" />
  </gap:plugin>
+</widget>
+
+
